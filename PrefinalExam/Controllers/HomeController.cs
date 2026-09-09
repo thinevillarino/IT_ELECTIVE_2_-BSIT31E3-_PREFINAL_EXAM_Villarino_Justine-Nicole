@@ -38,7 +38,7 @@ namespace PrefinalExam.Controllers
             List<ExamQuestion> questions = new List<ExamQuestion>();
 
 
-            // QUESTION 1
+            // QUESTION 1 - Answered
             questions.Add(new ExamQuestion
             {
                 Number = 1,
