@@ -1,0 +1,238 @@
+﻿@model PrefinalExam.Models.ExamQuestion
+
+@{
+    ViewData["Title"] = "Question " + Model.Number;
+
+    int totalQuestions = ViewBag.TotalQuestions;
+
+    int previousNumber = Model.Number - 1;
+
+    int nextNumber = Model.Number + 1;
+
+    double progress =
+        ((double)Model.Number / totalQuestions) * 100;
+}
+
+
+<section class="questions-page">
+
+
+    <img src="~/images/exam-logo.jpg"
+         class="questions-watermark"
+         alt="" />
+
+
+    <div class="questions-container">
+
+
+        <div class="progress-section">
+
+            <div class="progress-text">
+
+                <span>
+                    QUESTION @Model.Number
+                </span>
+
+                <span>
+                    @Model.Number / @totalQuestions
+                </span>
+
+            </div>
+
+
+            <div class="progress-background">
+
+                <div class="progress-fill"
+                     style="width: @progress%">
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="question-card">
+
+
+            <div class="question-heading">
+
+                <div class="question-number">
+                    @Model.Number
+                </div>
+
+
+                <div class="question-text">
+
+                    <small>
+                        QUESTION @Model.Number
+                    </small>
+
+                    <h2>
+                        @Model.Question
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="choices">
+
+
+                <div class="choice @(Model.SelectedAnswer == "A" ? "selected-answer" : "")">
+
+                    <span class="choice-letter">
+                        A
+                    </span>
+
+                    <p>
+                        @Model.OptionA
+                    </p>
+
+                </div>
+
+
+
+                <div class="choice @(Model.SelectedAnswer == "B" ? "selected-answer" : "")">
+
+                    <span class="choice-letter">
+                        B
+                    </span>
+
+                    <p>
+                        @Model.OptionB
+                    </p>
+
+                </div>
+
+
+
+                <div class="choice @(Model.SelectedAnswer == "C" ? "selected-answer" : "")">
+
+                    <span class="choice-letter">
+                        C
+                    </span>
+
+                    <p>
+                        @Model.OptionC
+                    </p>
+
+                </div>
+
+
+
+                <div class="choice @(Model.SelectedAnswer == "D" ? "selected-answer" : "")">
+
+                    <span class="choice-letter">
+                        D
+                    </span>
+
+                    <p>
+                        @Model.OptionD
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="selected-label">
+
+                <span>
+                    ✓
+                </span>
+
+                <p>
+                    My Answer:
+                    <strong>
+                        @Model.SelectedAnswer
+                    </strong>
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="question-number-buttons">
+
+            @for (int i = 1; i <= totalQuestions; i++)
+            {
+                <a asp-controller="Home"
+                   asp-action="Questions"
+                   asp-route-number="@i"
+                   class="number-link @(i == Model.Number ? "active" : "")">
+
+                    @i
+
+                </a>
+            }
+
+        </div>
+
+
+
+        <div class="bottom-navigation">
+
+
+            @if (Model.Number > 1)
+            {
+                <a asp-controller="Home"
+                   asp-action="Questions"
+                   asp-route-number="@previousNumber"
+                   class="previous-button">
+
+                    ← Previous
+
+                </a>
+            }
+            else
+            {
+                <span class="previous-button disabled-button">
+
+                    ← Previous
+
+                </span>
+            }
+
+
+
+            <a asp-controller="Home"
+               asp-action="Index"
+               class="question-home-button">
+
+                Home
+
+            </a>
+
+
+
+            @if (Model.Number < totalQuestions)
+            {
+                <a asp-controller="Home"
+                   asp-action="Questions"
+                   asp-route-number="@nextNumber"
+                   class="next-button">
+
+                    Next →
+
+                </a>
+            }
+            else
+            {
+                <span class="next-button disabled-button">
+
+                    Next →
+
+                </span>
+            }
+
+        </div>
+
+    </div>
+
+</section>

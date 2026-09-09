@@ -1,8 +1,74 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<section class="home-page">
+
+    <div class="decor-circle circle-one"></div>
+    <div class="decor-circle circle-two"></div>
+
+    <img src="~/images/exam-logo.jpg"
+         class="home-watermark"
+         alt="" />
+
+    <div class="home-content">
+
+        <div class="course-badge">
+            IT ELECTIVE 2
+        </div>
+
+        <p class="welcome-text">
+            WELCOME TO MY
+        </p>
+
+        <h1 class="home-title">
+            Prefinal
+            <span>Examination</span>
+        </h1>
+
+        <div class="title-line"></div>
+
+        <p class="subject-text">
+            WEB SYSTEM AND TECHNOLOGIES
+        </p>
+
+        <div class="student-information">
+
+            <div class="information-item">
+                <small>STUDENT</small>
+                <strong>Justine-Nicole Villarino</strong>
+            </div>
+
+            <div class="information-divider"></div>
+
+            <div class="information-item">
+                <small>SECTION</small>
+                <strong>BSIT31E3</strong>
+            </div>
+
+            <div class="information-divider"></div>
+
+            <div class="information-item">
+                <small>TOTAL QUESTIONS</small>
+                <strong>20 Items</strong>
+            </div>
+
+        </div>
+
+        <a asp-controller="Home"
+           asp-action="Questions"
+           asp-route-number="1"
+           class="start-button">
+
+            Start Examination
+            <span>→</span>
+
+        </a>
+
+        <p class="bottom-message">
+            CLICK START TO VIEW THE QUESTIONS
+        </p>
+
+    </div>
+
+</section>
