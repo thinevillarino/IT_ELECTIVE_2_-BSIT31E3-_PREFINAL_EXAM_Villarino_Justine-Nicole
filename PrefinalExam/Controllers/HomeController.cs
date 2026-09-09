@@ -342,7 +342,7 @@ namespace PrefinalExam.Controllers
             });
 
 
-            // QUESTION 17
+            // QUESTION 17 - Answered   
             questions.Add(new ExamQuestion
             {
                 Number = 17,
